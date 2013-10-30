@@ -80,19 +80,18 @@ class wechat :
 	def sendmsg(self,fakeid,textmsg) :
 		
 		values = {
-		        'mask':'false',
 		    'tofakeid':fakeid,
 		    'imgcode':'',
 		    'type':'1',
 		    'content':textmsg,
-		    'quickreplyid':'201',
+		    'random':'0.5078148092143238',
 		    'token':self.Token,
 		    'lang':'zh_CN',
-		    't':'ajax-response'
+		    't':'ajax-response',
 		}
 		data = urllib.urlencode(values)
 
-		self.opener.addheaders [1] = ('Referer', 'https://mp.weixin.qq.com/cgi-bin/singlemsgpage?msgid=&source=&count=20&t=wxm-singlechat&fromfakeid='+ fakeid +'&token='+self.Token+'&lang=zh_CN')
+		self.opener.addheaders [1] = ('Referer', 'https://mp.weixin.qq.com/cgi-bin/singlesendpage?t=message/send&action=index&tofakeid='+ fakeid +'&token='+self.Token+'&lang=zh_CN')
 		search = self.opener.open('https://mp.weixin.qq.com/cgi-bin/singlesend?t=ajax-response&lang=zh_CN',data)
 
 		return search.read()
