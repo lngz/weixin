@@ -9,8 +9,10 @@ import sys
 reload(sys)
 sys.setdefaultencoding('UTF-8')
 
-appid = raw_input("appid:")
-secret = raw_input("secret:")
+import password
+
+appid = password.appid
+secret = password.secret
 
 gettoken = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=' + appid + '&secret=' + secret
 
@@ -34,6 +36,11 @@ menu = '''{
                "type":"click",
                "name":"告警助手",
                "key":"V1001_ALERT"
+            },
+            {
+               "type":"click",
+               "name":"查询ID",
+               "key":"V1001_WHOAMI"
             },
             {
                "type":"click",

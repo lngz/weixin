@@ -2,13 +2,13 @@
 
 
 from wechat import wechat
-
+import password
 
 
 if __name__ == '__main__':
     w = wechat()
-    username = raw_input("username:")
-    password = raw_input("password:")
+    username = password.username
+    password = password.password
     w.login(username,password)
     w.getfriend()
     print w.friends['contacts']

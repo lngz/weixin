@@ -5,8 +5,8 @@ import sys
 import urllib2
 import json
 
-reload(sys)
-sys.setdefaultencoding('UTF-8')
+userid = '2377600462' # 逗号,分割多个人
+#userid = 'xxx'
 
 # store params passed Splunk as optional alert properties
 '''
@@ -19,8 +19,6 @@ $6 = a link to the saved search in Splunk +
 $7 = a list of the tags belonging to this saved search (this option was removed starting in Splunk 3.6)
 $8 = path to a file where raw results of this search are located (as opposed to passing the actual results into the ticket--this could be a lot of data).
 '''
-userid = '2377600462'
-
 
 
 if len(sys.argv) < 8 :
